@@ -26,7 +26,7 @@ public class Main {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                App app = new App("OBJTest", 400, 300);
+                App app = new App("JOGLObjTest", 400, 300);
                 app.setModel(model);
                 app.setVisible(true);
                 app.pack();
