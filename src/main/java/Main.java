@@ -1,5 +1,5 @@
+import io.FileLoader;
 import io.Logger;
-import io.ResLoader;
 import ui.App;
 import wavefront.GLModel;
 
@@ -12,11 +12,16 @@ import java.util.List;
  */
 public class Main {
     public static void main(String[] args) throws IOException {
-        String fileName = "models/cow.obj"; // any file in src/main/res/models
-        ResLoader resLoader = new ResLoader(Main.class);
-        List<String> data = resLoader.readFile(fileName);
+        List<String> data;
+
+        if (args.length == 0) {
+            data = FileLoader.readResFile(Main.class, "example.obj");
+        } else {
+            data = FileLoader.readFile(args[0]);
+        }
+
         final GLModel model = new GLModel(data);
-        Logger.log("Main", "Loaded a model from " + fileName + ".");
+        Logger.log("Main", "Parsed the data and generated a GLModel instance.");
 
         SwingUtilities.invokeLater(new Runnable() {
             @Override
