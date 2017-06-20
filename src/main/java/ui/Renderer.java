@@ -71,16 +71,16 @@ public class Renderer extends GLJPanel implements GLEventListener {
         gl.glClearColor(0, 0, 0, 1);
 
         // lighting
-        float[] lightPos = {1, 1, -1, 0};
+        float[] lightPos = {5, 5, -1, 0};
 
         gl.glEnable(GLLightingFunc.GL_LIGHTING);
         gl.glEnable(GLLightingFunc.GL_LIGHT0);
         gl.glLightfv(GLLightingFunc.GL_LIGHT0, GLLightingFunc.GL_POSITION, lightPos, 0);
 
         // shading
-        float[] ambientColor = {0.8f, 0.2f, 0.9f, 1.0f};
-        float[] diffuseColor = {0.8f, 0.2f, 0.9f, 1.0f};
-        float[] specColor = {0.5f, 0.5f, 0.5f, 0.5f};
+        float[] ambientColor = {0.4f, 0.4f, 0.8f, 1.0f};
+        float[] diffuseColor = {0.3f, 0.3f, 1.0f, 1.0f};
+        float[] specColor = {1.0f, 1.0f, 1.0f, 1.0f};
         float[] shininess = {100.0f};
 
         gl.glShadeModel(GLLightingFunc.GL_SMOOTH);
