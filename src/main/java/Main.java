@@ -16,8 +16,10 @@ public class Main {
 
         if (args.length == 0) {
             data = FileLoader.readResFile(Main.class, "example.obj");
+            Logger.log("Main", "No arguments - Opened the example file (example.obj).");
         } else {
             data = FileLoader.readFile(args[0]);
+            Logger.log("Main", "Opened the file " + args[0]);
         }
 
         final GLModel model = new GLModel(data);

@@ -1,39 +1,34 @@
 package io;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 /**
  * Util for reading a file.
  */
 public class FileLoader {
-    public static List<String> readResFile(Class klass, String fileName) throws IOException {
-        URL url = klass.getClassLoader().getResource(fileName);
-
-        if (url == null) {
-            throw new IOException(fileName);
-        } else {
-            String realName = url.getFile();
-            return readFile(realName);
-        }
+    public static List<String> readResFile(Class<?> klass, String fileName) throws IOException {
+        InputStream stream = klass.getResourceAsStream(fileName);
+        return readLines(stream);
     }
 
     public static List<String> readFile(String fileName) throws IOException {
-        List<String> data = new ArrayList<>();
-
         File file = new File(fileName);
-        Scanner scanner = new Scanner(file);
+        FileInputStream stream = new FileInputStream(file);
+        return readLines(stream);
+    }
 
-        while (scanner.hasNextLine()) {
-            data.add(scanner.nextLine());
+    private static List<String> readLines(InputStream stream) throws IOException {
+        List<String> data = new ArrayList<>();
+        String line;
+
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(stream))) {
+            while ((line = reader.readLine()) != null) {
+                data.add(line);
+            }
         }
 
-        scanner.close();
-        Logger.log("FileLoader", "Loaded the data from \"" + fileName + "\".");
         return data;
     }
 }
