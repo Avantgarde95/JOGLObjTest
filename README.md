@@ -28,4 +28,4 @@ you should use these files to build this app (and general JOGL apps):
   and [here](https://jogamp.org/wiki/index.php/Setting_up_a_JogAmp_project_in_your_favorite_IDE).)
 
 ### Screenshots
-![Screenshot](https://github.com/Avantgarde95/JOGLObjTest/screenshot.png)
+![Screenshot](http://i.imgur.com/pLWFeSC.png)
