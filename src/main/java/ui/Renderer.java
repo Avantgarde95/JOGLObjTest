@@ -146,8 +146,8 @@ public class Renderer extends GLJPanel implements GLEventListener {
         float right = ratio;
         float bottom = -1.0f;
         float top = 1.0f;
-        float zNear = 0.0f;
-        float zFar = 30.0f;
+        float zNear = 1.0f;
+        float zFar = 100.0f;
 
         gl.glMatrixMode(GLMatrixFunc.GL_PROJECTION);
         gl.glLoadIdentity();
